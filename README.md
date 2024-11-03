@@ -1,25 +1,18 @@
-# Springboot Hello World App
-This repository is used for Jenkins Practice
+# Automated Java Project with Jenkins
+The project demonstrates continuous integration practices by automating pulls the latest code, build & test tasks through a Jenkins pipeline.
 
-### Build JAR
+### Prerequisites
 ```
-mvn clean package -DskipTests=true
+To replicate the automation setup in this repository, you need:
 ```
+- Java: Version [your project's Java version, e.g., 11 or 17].
+- Jenkins: Installed and configured with necessary plugins, such as Git, Maven, and Pipeline.
+- Git: To manage source code.
 
-### Unit Test Cases
+### Jenkins Automation Process
 ```
-mvn test
 ```
-- Total 6 test cases, out of which
-  - 5 test cases will pass and 
-  - 1 test case fails!
+- Source Code Checkout: Jenkins pulls the latest code from the repository.
+- Build: Jenkins compiles the Java project using Maven (or Gradle if applicable).
+- Test: Automated tests run to ensure that code meets quality standards.
  
-### Deploy/Run
-```
-java -jar target/hello-demo-*.jar 
-```
-
-### Integration Testing (Return 200 OK response)
-```
-curl -s http://localhost:6767/hello"
-```
