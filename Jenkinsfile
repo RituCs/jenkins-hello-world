@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Local Deployment') {
             steps {
-                sh """ java -jar target/hello-demo-*.jar  """
+                sh """nohup java -jar target/hello-demo-*.jar > /dev/null  & """
             }
         }
         stage('Integration Testing') {
