@@ -18,11 +18,21 @@ pipeline {
                 sh 'mvn clean package -DskipTests=true'
             }
         }
-         stage('Test') {
+        stage('Test') {
             steps {
                 sh 'mvn test'
             }
         }
+        stage('Local Deployment') {
+            steps {
+                sh """ nohup java -jar target/hello-demo-*.jar > /dev/null 2>&1 & """
+            }
+        }
+        stage('Integration Testing') {
+            steps {
+               sh 'curl -s http://localhost:6767/hello'
+             }
+        } 
     }
 }
 
