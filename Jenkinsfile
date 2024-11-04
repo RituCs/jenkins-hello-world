@@ -25,11 +25,12 @@ pipeline {
         }
         stage('Local Deployment') {
             steps {
-                sh """nohup java -jar target/hello-demo-*.jar > /dev/null  & """
+                sh """nohup java -jar target/hello-demo-*.jar & """
             }
         }
         stage('Integration Testing') {
             steps {
+               sleep(10)
                sh 'curl -s http://139.59.61.80:6767/hello'
              }
         } 
