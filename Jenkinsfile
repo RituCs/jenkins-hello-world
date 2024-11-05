@@ -31,7 +31,7 @@ pipeline {
         stage('Integration Testing') {
             steps {
                sleep(10)
-               sh 'curl -s http://139.59.61.80:6767/hello'
+               sh "curl -s http://${params.LOCALHOST}:${params.APP_PORT}/hello"
              }
         } 
     }
